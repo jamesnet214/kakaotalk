@@ -1,19 +1,29 @@
 # kakaotalk
 
+> Jamesnet.WPF NugetPackage 설치
+
 1. Kakao 프로젝트 생성
-2. Kakao.Forms 프로젝트 생성
-    - KakaoWin
+    - Starter
+    - App : JamesApplication
+3. Kakao.Forms 프로젝트 생성
+    - KakaoWindow : JamesWindow
 4. Kakao.Login 프로젝트 생성
 5. Region
-    - Jamesnet.WPF Nuget Package
+    - JamesRegion
 7. ViewModules
     - IModule
 8. DirectModules  
-    - Region.RegisterViewWithRegion
-  
+    - Region.RegisterViewWithRegion (Resolve<IRegion>)  
 8. ViewModel
+    - ObservableBase (Jamesnet.WPF.Mvvm)
 9. Login Command
+    - [RelayCommand] attribute
 10. Kakao.Main 프로젝트 생성
 11. Active MainContent
-12. Active LoginContent (Logout)
-13. KakaoViewModel 생성 (RegisterViewWithRegion 대체)
+    - IRegionManager
+    - IContainerProvider
+12. Logout Command
+    - Active LoginContent
+13. KakaoViewModel 생성
+    - RegisterViewWithRegion 폐기
+    - Active LoginContent (대체)
