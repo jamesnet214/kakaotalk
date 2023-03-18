@@ -20,6 +20,9 @@ namespace Kakao.Main.Local.ViewModels
         [ObservableProperty]
         private List<MenuModel> _menus;
 
+        [ObservableProperty]
+        private MenuModel _menu;
+
         public MainContentViewModel(IRegionManager regionManager, IContainerProvider containerProvider)
         {
             _regionManager = regionManager;
@@ -31,37 +34,23 @@ namespace Kakao.Main.Local.ViewModels
         private List<MenuModel> GetMenus()
         {
             List<MenuModel> source = new();
-            source.Add(new MenuModel().DataGetn("Chats"));
-            source.Add(new MenuModel().DataGetn("Friends"));
-            source.Add(new MenuModel().DataGetn("More"));
+            source.Add(new MenuModel().DataGetn(ContentNameManager.Chats));
+            source.Add(new MenuModel().DataGetn(ContentNameManager.Friends));
+            source.Add(new MenuModel().DataGetn(ContentNameManager.More));
 
             return source;
         }
 
-        [RelayCommand]
-        private void Chats()
+        partial void OnMenuChanged(MenuModel value)
         {
             IRegion contentRegion = _regionManager.Regions[RegionNameManager.ContentRegion];
-            IViewable chatsContent = _containerProvider.Resolve<IViewable>(ContentNameManager.Chats);
+            IViewable content = _containerProvider.Resolve<IViewable>(value.Id);
 
-            if (!contentRegion.Views.Contains(chatsContent))
+            if (!contentRegion.Views.Contains(content))
             {
-                contentRegion.Add(chatsContent);
+                contentRegion.Add(content);
             }
-            contentRegion.Activate(chatsContent);
-        }
-
-        [RelayCommand]
-        private void Friends()
-        {
-            IRegion contentRegion = _regionManager.Regions[RegionNameManager.ContentRegion];
-            IViewable friendsContent = _containerProvider.Resolve<IViewable>(ContentNameManager.Friends);
-
-            if (!contentRegion.Views.Contains(friendsContent))
-            {
-                contentRegion.Add(friendsContent);
-            }
-            contentRegion.Activate(friendsContent);
+            contentRegion.Activate(content);
         }
 
         [RelayCommand]

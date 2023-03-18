@@ -18,19 +18,8 @@
                                          Columns="Auto, *">
 
                             <StackPanel>
-                                <units:VerticalMenuList ItemsSource="{Binding Menus}"/>
-
-                                <Button Content="Chats"
-                                        Margin="10"
-                                        Padding="8 4 8 4"
-                                        HorizontalAlignment="Left"
-                                        Command="{Binding ChatsCommand}"/>
-
-                                <Button Content="Friends"
-                                        Margin="10"
-                                        Padding="8 4 8 4"
-                                        HorizontalAlignment="Left"
-                                        Command="{Binding FriendsCommand}"/>
+                                <units:VerticalMenuList ItemsSource="{Binding Menus}"
+                                                        SelectedItem="{Binding Menu}"/>
 
                                 <Button Content="Logout"
                                         Margin="10"
