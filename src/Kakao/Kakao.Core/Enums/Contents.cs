@@ -10,6 +10,8 @@ namespace Kakao.Core.Enums
     {
         Login,
         Main,
-        Friends
+        Friends,
+        Chats,
+        More
     }
 }

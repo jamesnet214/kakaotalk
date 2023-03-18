@@ -19,6 +19,19 @@ namespace Kakao.Main.Local.ViewModels
         }
 
         [RelayCommand]
+        private void Chats()
+        {
+            IRegion contentRegion = _regionManager.Regions[RegionNameManager.ContentRegion];
+            IViewable chatsContent = _containerProvider.Resolve<IViewable>(ContentNameManager.Chats);
+
+            if (!contentRegion.Views.Contains(chatsContent))
+            {
+                contentRegion.Add(chatsContent);
+            }
+            contentRegion.Activate(chatsContent);
+        }
+
+        [RelayCommand]
         private void Friends()
         {
             IRegion contentRegion = _regionManager.Regions[RegionNameManager.ContentRegion];

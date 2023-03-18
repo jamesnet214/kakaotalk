@@ -23,6 +23,12 @@
                                     <ListBoxItem>More</ListBoxItem>
                                 </ListBox>
 
+                                <Button Content="Chats"
+                                        Margin="10"
+                                        Padding="8 4 8 4"
+                                        HorizontalAlignment="Left"
+                                        Command="{Binding ChatsCommand}"/>
+
                                 <Button Content="Friends"
                                         Margin="10"
                                         Padding="8 4 8 4"

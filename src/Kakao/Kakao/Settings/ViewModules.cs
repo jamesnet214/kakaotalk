@@ -1,4 +1,5 @@
 ﻿using Jamesnet.Wpf.Controls;
+using Kakao.Chats.UI.Views;
 using Kakao.Core.Names;
 using Kakao.Friends.UI.Views;
 using Kakao.Login.UI.Views;
@@ -20,6 +21,7 @@ namespace Kakao.Settings
             containerRegistry.RegisterSingleton<IViewable, LoginContent>(ContentNameManager.Login);
             containerRegistry.RegisterSingleton<IViewable, MainContent>(ContentNameManager.Main);
             containerRegistry.RegisterSingleton<IViewable, FriendsContent>(ContentNameManager.Friends);
+            containerRegistry.RegisterSingleton<IViewable, ChatsContent>(ContentNameManager.Chats);
         }
     }
 }
