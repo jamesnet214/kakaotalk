@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:views="clr-namespace:Kakao.Main.UI.Views"
+    xmlns:units="clr-namespace:Kakao.Main.UI.Units"
     xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf"
     xmlns:names="clr-namespace:Kakao.Core.Names;assembly=Kakao.Core">
 
@@ -17,11 +18,7 @@
                                          Columns="Auto, *">
 
                             <StackPanel>
-                                <ListBox>
-                                    <ListBoxItem>Friends</ListBoxItem>
-                                    <ListBoxItem>Chats</ListBoxItem>
-                                    <ListBoxItem>More</ListBoxItem>
-                                </ListBox>
+                                <units:VerticalMenuList ItemsSource="{Binding Menus}"/>
 
                                 <Button Content="Chats"
                                         Margin="10"

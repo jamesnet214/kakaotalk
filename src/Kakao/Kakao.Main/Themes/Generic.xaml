@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Kakao.Main">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Kakao.Main;component/Themes/Units/VerticalMenuListItem.xaml"/>
+        <ResourceDictionary Source="/Kakao.Main;component/Themes/Units/VerticalMenuList.xaml"/>
         <ResourceDictionary Source="/Kakao.Main;component/Themes/Views/MainContent.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
