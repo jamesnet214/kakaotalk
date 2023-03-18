@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
@@ -13,10 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kakao.Core\Kakao.Core.csproj" />
-    <ProjectReference Include="..\Kakao.Forms\Kakao.Forms.csproj" />
-    <ProjectReference Include="..\Kakao.Friends\Kakao.Friends.csproj" />
-    <ProjectReference Include="..\Kakao.Login\Kakao.Login.csproj" />
-    <ProjectReference Include="..\Kakao.Main\Kakao.Main.csproj" />
   </ItemGroup>
 
 </Project>
