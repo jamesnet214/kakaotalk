@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kakao.Core\Kakao.Core.csproj" />
+    <ProjectReference Include="..\Kakao.Friends.Birth\Kakao.Friends.Birth.csproj" />
+    <ProjectReference Include="..\Kakao.Friends.Favorites\Kakao.Friends.Favorites.csproj" />
   </ItemGroup>
 
 </Project>
