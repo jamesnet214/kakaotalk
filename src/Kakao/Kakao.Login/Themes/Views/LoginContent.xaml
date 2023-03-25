@@ -38,7 +38,7 @@
                                     CornerRadius="1">
                                 <james:JamesGrid Rows="Auto, Auto" Columns="*">
                                     <based:PlaceholderTextBox PlaceholderText="Email"/>
-                                    <based:PlaceholderTextBox PlaceholderText="Password"/>
+                                    <based:PlaceholderPasswordBox PlaceholderText="Password"/>
                                 </james:JamesGrid>
                             </Border>
 
