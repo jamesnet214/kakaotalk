@@ -3,27 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao", "Kakao\Kakao.csproj", "{46DF74E8-084D-4F5E-8B75-4E8268220199}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao", "Kakao\Kakao.csproj", "{46DF74E8-084D-4F5E-8B75-4E8268220199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Forms", "Kakao.Forms\Kakao.Forms.csproj", "{4F0F78F2-88D3-45AF-878C-52A2BB162C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Forms", "Kakao.Forms\Kakao.Forms.csproj", "{4F0F78F2-88D3-45AF-878C-52A2BB162C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Login", "Kakao.Login\Kakao.Login.csproj", "{8C284A83-6076-4299-B365-27BBA418E242}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Login", "Kakao.Login\Kakao.Login.csproj", "{8C284A83-6076-4299-B365-27BBA418E242}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Studio", "Studio", "{B2B2C670-F976-45C3-92E0-0509BD94FAC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Partial", "Partial", "{B6E33984-E8F4-4E2C-8839-439462E3E06E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Friends", "Kakao.Friends\Kakao.Friends.csproj", "{57960A63-A0FA-4601-AE34-EC69337F5FA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Friends", "Kakao.Friends\Kakao.Friends.csproj", "{57960A63-A0FA-4601-AE34-EC69337F5FA4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Based", "Based", "{AD150068-69FB-4F5C-81B4-53677B4062F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Core", "Kakao.Core\Kakao.Core.csproj", "{E257787A-2C55-409E-9169-C74C07C7C0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Core", "Kakao.Core\Kakao.Core.csproj", "{E257787A-2C55-409E-9169-C74C07C7C0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Main", "Kakao.Main\Kakao.Main.csproj", "{3996BDDD-ADD4-4A6E-9F00-6C4129E6CE9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Main", "Kakao.Main\Kakao.Main.csproj", "{3996BDDD-ADD4-4A6E-9F00-6C4129E6CE9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Chats", "Kakao.Chats\Kakao.Chats.csproj", "{3F9F45EA-7E69-436D-B026-FFE20AF22E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Chats", "Kakao.Chats\Kakao.Chats.csproj", "{3F9F45EA-7E69-436D-B026-FFE20AF22E9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.More", "Kakao.More\Kakao.More.csproj", "{C1FEDE6F-B539-41BA-BE79-D6C4148F2226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.More", "Kakao.More\Kakao.More.csproj", "{C1FEDE6F-B539-41BA-BE79-D6C4148F2226}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{0BD9C177-16F1-4DD2-BB4A-669F7822045F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.LayoutSupport", "Kakao.LayoutSupport\Kakao.LayoutSupport.csproj", "{23BD1E22-FF89-443E-84C8-A82D75E94593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,10 @@ Global
 		{C1FEDE6F-B539-41BA-BE79-D6C4148F2226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1FEDE6F-B539-41BA-BE79-D6C4148F2226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1FEDE6F-B539-41BA-BE79-D6C4148F2226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BD1E22-FF89-443E-84C8-A82D75E94593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BD1E22-FF89-443E-84C8-A82D75E94593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BD1E22-FF89-443E-84C8-A82D75E94593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BD1E22-FF89-443E-84C8-A82D75E94593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,7 @@ Global
 		{3996BDDD-ADD4-4A6E-9F00-6C4129E6CE9E} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
 		{3F9F45EA-7E69-436D-B026-FFE20AF22E9C} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
 		{C1FEDE6F-B539-41BA-BE79-D6C4148F2226} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
+		{23BD1E22-FF89-443E-84C8-A82D75E94593} = {0BD9C177-16F1-4DD2-BB4A-669F7822045F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3FDB06E-D481-40B5-8473-D6069243FA02}
