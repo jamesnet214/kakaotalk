@@ -31,6 +31,17 @@
                                 <Path Fill="#423630" Data="{StaticResource KakaoCI}"/>
                             </Viewbox>
 
+                            <Border Background="#FFFFFF" 
+                                    Margin="50 50 50 50"
+                                    BorderBrush="#44423630"
+                                    BorderThickness="1"
+                                    CornerRadius="1">
+                                <james:JamesGrid Rows="Auto, Auto" Columns="*">
+                                    <based:PlaceholderTextBox PlaceholderText="Email"/>
+                                    <based:PlaceholderTextBox PlaceholderText="Password"/>
+                                </james:JamesGrid>
+                            </Border>
+
                             <Button Content="Login"
                                     Margin="10"
                                     Padding="8 4 8 4"

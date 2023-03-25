@@ -44,7 +44,7 @@ namespace Kakao.LayoutSupport.UI.Units
     ///     <MyNamespace:TaskBarButton/>
     ///
     /// </summary>
-    public class TaskBarButton : Control
+    public class TaskBarButton : Button
     {
         static TaskBarButton()
         {
