@@ -26,4 +26,7 @@ CI Geometry
 <img width="325" alt="image" src="https://user-images.githubusercontent.com/52397976/227625862-4d45ad44-a6ba-40d0-953f-7faa6a98a753.png">
 
 
-## Chats
+1. 메인 메뉴 순서 변경
+2. Friends 메뉴 기본  선택
+3. ExapndButton 추가
+4. VerticalMenuListItem 수정
