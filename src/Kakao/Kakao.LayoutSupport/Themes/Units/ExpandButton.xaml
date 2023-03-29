@@ -4,24 +4,27 @@
     xmlns:units="clr-namespace:Kakao.LayoutSupport.UI.Units"
     xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf">
 
-    <Style TargetType="{x:Type units:FriendsBox}">
+    <Geometry x:Key="ChevronUp">M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z</Geometry>
+    <Geometry x:Key="ChevronDown">M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z</Geometry>
+    
+    <Style TargetType="{x:Type units:ExpandButton}">
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:FriendsBox}">
+                <ControlTemplate TargetType="{x:Type units:ExpandButton}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Padding="{TemplateBinding Padding}">
-                        <james:JamesGrid Rows="Auto, Auto" Columns="*, Auto">
-                            <TextBlock Text="{TemplateBinding Tag}"/>
-                            <units:ExpandButton x:Name="expand" Content="Toggle"/>
-                            <ItemsPresenter x:Name="items" Grid.ColumnSpan="2"/>
-                        </james:JamesGrid>
+                        <Viewbox Width="14" Height="14">
+                            <Path x:Name="path" Fill="#aaaaaa" Data="{StaticResource ChevronUp}"/>
+                        </Viewbox>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=expand, Path=IsChecked}" Value="True">
-                            <Setter TargetName="items" Property="Visibility" Value="Collapsed"/>
-                        </DataTrigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource ChevronDown}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

@@ -7,14 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\smile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Jamesnet.Wpf" Version="1.0.0.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kakao.Core\Kakao.Core.csproj" />
-    <ProjectReference Include="..\Kakao.Friends.Birth\Kakao.Friends.Birth.csproj" />
-    <ProjectReference Include="..\Kakao.Friends.Favorites\Kakao.Friends.Favorites.csproj" />
-    <ProjectReference Include="..\Kakao.Talk\Kakao.Talk.csproj" />
+    <Resource Include="Images\smile.png" />
   </ItemGroup>
 
 </Project>

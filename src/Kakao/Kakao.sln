@@ -27,13 +27,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.More", "Kakao.More\Ka
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{0BD9C177-16F1-4DD2-BB4A-669F7822045F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.LayoutSupport", "Kakao.LayoutSupport\Kakao.LayoutSupport.csproj", "{23BD1E22-FF89-443E-84C8-A82D75E94593}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.LayoutSupport", "Kakao.LayoutSupport\Kakao.LayoutSupport.csproj", "{23BD1E22-FF89-443E-84C8-A82D75E94593}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Friends.Birth", "Kakao.Friends.Birth\Kakao.Friends.Birth.csproj", "{A770C75F-7113-4A68-A1D8-03166739370D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Friends.Birth", "Kakao.Friends.Birth\Kakao.Friends.Birth.csproj", "{A770C75F-7113-4A68-A1D8-03166739370D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Friends", "Friends", "{6C2A32A7-B313-4FAC-892E-FA47D2F5F019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Friends.Favorites", "Kakao.Friends.Favorites\Kakao.Friends.Favorites.csproj", "{0AA23087-15DE-4F6A-81A7-D6B9BE4A9303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Friends.Favorites", "Kakao.Friends.Favorites\Kakao.Friends.Favorites.csproj", "{0AA23087-15DE-4F6A-81A7-D6B9BE4A9303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Talk", "Kakao.Talk\Kakao.Talk.csproj", "{75486B32-8FC0-4983-8D01-2ECC1E812548}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{0AA23087-15DE-4F6A-81A7-D6B9BE4A9303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AA23087-15DE-4F6A-81A7-D6B9BE4A9303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AA23087-15DE-4F6A-81A7-D6B9BE4A9303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75486B32-8FC0-4983-8D01-2ECC1E812548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75486B32-8FC0-4983-8D01-2ECC1E812548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75486B32-8FC0-4983-8D01-2ECC1E812548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75486B32-8FC0-4983-8D01-2ECC1E812548}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{A770C75F-7113-4A68-A1D8-03166739370D} = {6C2A32A7-B313-4FAC-892E-FA47D2F5F019}
 		{6C2A32A7-B313-4FAC-892E-FA47D2F5F019} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
 		{0AA23087-15DE-4F6A-81A7-D6B9BE4A9303} = {6C2A32A7-B313-4FAC-892E-FA47D2F5F019}
+		{75486B32-8FC0-4983-8D01-2ECC1E812548} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3FDB06E-D481-40B5-8473-D6069243FA02}

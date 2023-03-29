@@ -6,7 +6,7 @@
     xmlns:names="clr-namespace:Kakao.Core.Names;assembly=Kakao.Core">
 
     <Style TargetType="{x:Type units:VerticalMenuList}">
-        <Setter Property="Background" Value="Yellow"/>
+        <Setter Property="Margin" Value="0 40 0 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:VerticalMenuList}">

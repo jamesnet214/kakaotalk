@@ -2,8 +2,10 @@
 using Jamesnet.Wpf.Controls;
 using Jamesnet.Wpf.Mvvm;
 using Kakao.Core.Names;
+using Kakao.Talk.UI.Views;
 using Prism.Ioc;
 using Prism.Regions;
+using System.Windows;
 
 namespace Kakao.Friends.Local.ViewModels
 {
@@ -16,6 +18,14 @@ namespace Kakao.Friends.Local.ViewModels
         {
             _regionManager = regionManager;
             _containerProvider = containerProvider;
+        }
+
+        [RelayCommand]
+        private void DoubleClick(object data)
+        {
+            Window window = new();
+            window.Content = new TalkContent();
+            window.ShowDialog();
         }
 
         [RelayCommand]
