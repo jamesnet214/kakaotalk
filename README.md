@@ -30,3 +30,8 @@ CI Geometry
 2. Friends 메뉴 기본  선택
 3. ExapndButton 추가
 4. VerticalMenuListItem 수정
+5. Kakao.Talk 프로젝트 추가
+6. RichTextBox
+7. TalkTaskBarButton 추가
+8. SendTextBox 추가
+9. Kakao.Talk.TextMessage 프로젝트 추가
