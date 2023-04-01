@@ -38,9 +38,9 @@ CI Geometry
 4. Kakao.Talk 프로젝트 추가
     - TalkWindow 추가
     - TalkContent 추가
-    - TalkTaskBarButton 추가
-    - SendTextBox : TextBox 추가
-    - ChatRichTextBox : CustomRichTextBox 추가    
+    - TalkTaskBarButton 추가 (LayoutSupport)
+    - SendTextBox : TextBox 추가 (LayoutSupport)
+    - ChatRichTextBox : CustomRichTextBox 추가 (Units)
 5. RichTextBox 추가
     - Kakao.LayoutSupport.CustomRichTextBox : RichTextBox
     - ItemsSource(IEnumerable) DependencyProperty 추가
@@ -48,7 +48,7 @@ CI Geometry
     - Paragraph 로직 추가
 6. Kakao.Talk.TextMessage 프로젝트 추가
     - TextMessageItem : Control 추가
-    - 메시지타입 Send/Received
+    - ControlTemplate 메시지타입  (Send/Received)
     - 말풍선 구현
     - Tail 패스 생성 (Blend)
     - override GetTextContainerItemForOverride 생성 (ChatRichTextBox)
@@ -66,10 +66,11 @@ CI Geometry
     - Refresh Command 추가
     - Send Command 추가
     - Windows ListBox 추가
-    - Send Form 추가
-    - EventHub Subscribe => Refresh 연결
-    - TalkWindowRefreshEvent : PubSubEvent 추가
-    - TalkWindowRefreshArgs : EventArgs 추가
+    - Send Form 추가 (IReceiveMessage.Received)
+    - 윈도우 목록 
+      - EventHub Subscribe => Refresh 연결
+      - TalkWindowRefreshEvent : PubSubEvent 추가
+      - TalkWindowRefreshArgs : EventArgs 추가
     
 9. ChatStorage 추가, IoC
     - MessageModel 추가
