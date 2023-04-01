@@ -28,42 +28,42 @@ CI Geometry
 ## 작업 순서
 1. Friends 메뉴 기본 선택
 2. ExapndButton 추가
-3. VerticalMenuListItem 수정
-  - Path 수집
-  - Trigger 추가
+3. VerticalMenuListItem 수정  
+    - Path 수집
+    - Trigger 추가  
 4. Kakao.Talk 프로젝트 추가
-  - TalkWindow 추가
-  - TalkContent 추가
-  - TalkTaskBarButton 추가
-  - SendTextBox 추가
-  - ChatRichTextBox : CustomRichTextBox 추가
+    - TalkWindow 추가
+    - TalkContent 추가
+    - TalkTaskBarButton 추가
+    - SendTextBox 추가
+    - ChatRichTextBox : CustomRichTextBox 추가
 5. RichTextBox 추가
-  - Kakao.LayoutSupport.CustomRichTextBox : RichTextBox
-  - ItemsSource(IEnumerable) DependencyProperty 추가
-  - Changed 콜백 추가
-  - Paragraph 로직 추가
+    - Kakao.LayoutSupport.CustomRichTextBox : RichTextBox
+    - ItemsSource(IEnumerable) DependencyProperty 추가
+    - Changed 콜백 추가
+    - Paragraph 로직 추가
 8. Kakao.Talk.TextMessage 프로젝트 추가
-  - TextMessageItem : Control 추가
-  - 메시지타입 Send/Received
-  - 말풍선 구현
-  - Tail 패스 생성 (Blend)
-  - override GetTextContainerItemForOverride 생성 (ChatRichTextBox)
+    - TextMessageItem : Control 추가
+    - 메시지타입 Send/Received
+    - 말풍선 구현
+    - Tail 패스 생성 (Blend)
+    - override GetTextContainerItemForOverride 생성 (ChatRichTextBox)
 8. TalkWindowManager 추가
-  - TalkWindow 관리  로직 추가 (IoC 사용)
-  - Dictionary<int, JamesWindow> _windows 
-  - GetWindow(key) 메서드 추가
-  - GetAllWindows() 메서드 추가 (List<keyValuePier>)
-  - Resolve 메서드 추가
-    - 리플렉션 (Activator.CreateInstance<T>())
-  - UnregisterWindow(key) 메서드 추가 (TalkWindow Clsoed 일때 목록 제거 관리)
-  - event EventHandler WindowCountChanged 구현 (윈도우 관리목록이 변경될 때 이벤트)
-    - 실행 (WindowCountChanged?.Invoke(this, EventArgs.Empty);
+    - TalkWindow 관리  로직 추가 (IoC 사용)
+    - Dictionary<int, JamesWindow> _windows 
+    - GetWindow(key) 메서드 추가
+    - GetAllWindows() 메서드 추가 (List<keyValuePier>)
+    - Resolve 메서드 추가
+      - 리플렉션 (Activator.CreateInstance<T>())
+    - UnregisterWindow(key) 메서드 추가 (TalkWindow Clsoed 일때 목록 제거 관리)
+    - event EventHandler WindowCountChanged 구현 (윈도우 관리목록이 변경될 때 이벤트)
+      - 실행 (WindowCountChanged?.Invoke(this, EventArgs.Empty);
 9. Kakao.Tests 추가 (Simulator)
-  - SimulationWindow/SimulationViewModel 추가
-  - Refresh Command 추가
-  - Send Command 추가
-  - Windows ListBox 추가
-  - Send Form 추가
-  - EventHub Subscribe => Refresh 연결
-  - TalkWindowRefreshEvent : PubSubEvent 추가
-  - TalkWindowRefreshArgs : EventArgs 추가
+    - SimulationWindow/SimulationViewModel 추가
+    - Refresh Command 추가
+    - Send Command 추가
+    - Windows ListBox 추가
+    - Send Form 추가
+    - EventHub Subscribe => Refresh 연결
+    - TalkWindowRefreshEvent : PubSubEvent 추가
+    - TalkWindowRefreshArgs : EventArgs 추가
