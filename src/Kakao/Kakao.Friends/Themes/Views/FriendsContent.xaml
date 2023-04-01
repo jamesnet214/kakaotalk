@@ -24,12 +24,10 @@
                                 <birth:BirthdaysBoxItem>asdasdasd</birth:BirthdaysBoxItem>
                             </birth:BirthdaysBox>
 
-                            <favorite:FavoriteBox Tag="Favorites">
-                                <favorite:FavoriteBoxItem>asdasdasd</favorite:FavoriteBoxItem>
-                                <favorite:FavoriteBoxItem>asdasdasd</favorite:FavoriteBoxItem>
-                                <favorite:FavoriteBoxItem>asdasdasd</favorite:FavoriteBoxItem>
-                            </favorite:FavoriteBox>
-                            
+                            <favorite:FavoriteBox Tag="Favorites"
+                                                  DoubleClickCommand="{Binding DoubleClickCommand}"
+                                                  ItemsSource="{Binding Favorites}"/>
+
                             <Button Content="Logout"
                                     Margin="10"
                                     Padding="8 4 8 4"

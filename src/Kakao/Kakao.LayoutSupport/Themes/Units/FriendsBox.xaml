@@ -14,7 +14,7 @@
                             Padding="{TemplateBinding Padding}">
                         <james:JamesGrid Rows="Auto, Auto" Columns="*, Auto">
                             <TextBlock Text="{TemplateBinding Tag}"/>
-                            <CheckBox x:Name="expand" Content="Toggle"/>
+                            <units:ExpandButton x:Name="expand" Content="Toggle"/>
                             <ItemsPresenter x:Name="items" Grid.ColumnSpan="2"/>
                         </james:JamesGrid>
                     </Border>

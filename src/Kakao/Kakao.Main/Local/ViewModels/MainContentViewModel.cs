@@ -12,7 +12,7 @@ using System.Windows.Documents;
 
 namespace Kakao.Main.Local.ViewModels
 {
-    public partial class MainContentViewModel : ObservableBase
+    public partial class MainContentViewModel : ObservableBase, IViewLoadable
     {
         private readonly IRegionManager _regionManager;
         private readonly IContainerProvider _containerProvider;
@@ -29,6 +29,11 @@ namespace Kakao.Main.Local.ViewModels
             _containerProvider = containerProvider;
 
             Menus = GetMenus();
+        }
+
+        public void OnLoaded(IViewable smartWindow)
+        {
+            Menu = Menus[0];
         }
 
         private List<MenuModel> GetMenus()

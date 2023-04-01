@@ -5,20 +5,42 @@
     xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf"
     xmlns:names="clr-namespace:Kakao.Core.Names;assembly=Kakao.Core">
 
+    <Geometry x:Key="User">M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z</Geometry>
+    <Geometry x:Key="Chat">M12,3C17.5,3 22,6.58 22,11C22,15.42 17.5,19 12,19C10.76,19 9.57,18.82 8.47,18.5C5.55,21 2,21 2,21C4.33,18.67 4.7,17.1 4.75,16.5C3.05,15.07 2,13.13 2,11C2,6.58 6.5,3 12,3Z</Geometry>
+    <Geometry x:Key="More">M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z</Geometry>
+    
+
     <Style TargetType="{x:Type units:VerticalMenuListItem}">
-        <Setter Property="Background" Value="Yellow"/>
+        <Setter Property="Background" Value="#ECECED"/>
+        <Setter Property="Foreground" Value="#ACADB1"/>
+        <Setter Property="Padding" Value="10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:VerticalMenuListItem}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <TextBlock Text="{Binding Id}"/>
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <Viewbox Width="20" Height="20">
+                            <Path x:Name="path" Fill="{TemplateBinding Foreground}"/>
+                        </Viewbox>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#DDDDDD"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#97989C"/>
                         </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="#343740"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Id}" Value="Chats">
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource Chat}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Id}" Value="Friends">
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource User}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Id}" Value="More">
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource More}"/>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

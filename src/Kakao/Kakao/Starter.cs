@@ -1,4 +1,4 @@
-﻿using Kakao.Settings;
+﻿using Kakao.Properties;
 using System;
 
 namespace Kakao

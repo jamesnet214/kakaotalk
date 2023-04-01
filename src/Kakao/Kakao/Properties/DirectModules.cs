@@ -2,7 +2,7 @@
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace Kakao.Settings
+namespace Kakao.Properties
 {
     internal class DirectModules : IModule
     {
