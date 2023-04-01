@@ -222,3 +222,23 @@ public class SendTextBox : TextBox
     }
 }
 ```
+
+```
+<!-- 수평 대칭 예시 -->
+<Grid>
+    <Grid.LayoutTransform>
+        <ScaleTransform ScaleX="-1"/>
+    </Grid.LayoutTransform>
+    <!-- 대칭시킬 UIElement -->
+    <TextBlock Text="데칼코마니"/>
+</Grid>
+
+<!-- 수직 대칭 예시 -->
+<Grid>
+    <Grid.LayoutTransform>
+        <ScaleTransform ScaleY="-1"/>
+    </Grid.LayoutTransform>
+    <!-- 대칭시킬 UIElement -->
+    <TextBlock Text="데칼코마니"/>
+</Grid>
+```
