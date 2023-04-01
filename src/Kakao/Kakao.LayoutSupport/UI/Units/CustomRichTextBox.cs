@@ -52,7 +52,7 @@ namespace Kakao.LayoutSupport.UI.Units
             {
                 foreach (var item in ItemsSource)
                 {
-                    var control = GetContainerItemForOverride();
+                    var control = GetContainerForItemOverride();
                     control.DataContext = item;
                     Paragraph paragraph = new();
 
@@ -70,7 +70,7 @@ namespace Kakao.LayoutSupport.UI.Units
             ScrollToEnd();
         }
 
-        protected virtual Control GetContainerItemForOverride()
+        protected virtual Control GetContainerForItemOverride()
         {
             Control control = new();
 

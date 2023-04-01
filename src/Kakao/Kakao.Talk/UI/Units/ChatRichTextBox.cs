@@ -7,7 +7,7 @@ namespace Kakao.Talk.UI.Units
 {
     internal class ChatRichTextBox : CustomRichTextBox
     {
-        protected override Control GetContainerItemForOverride()
+        protected override Control GetContainerForItemOverride()
         {
             return new TextMessageItem();
         }

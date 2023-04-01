@@ -32,7 +32,7 @@ namespace Kakao.Talk.Local.ViewModels
 
         public void OnLoaded(IViewable smartWindow)
         {
-            Messages = _chatStorage.GetChants(_friends);
+            Messages = _chatStorage.GetChats(_friends);
         }
 
         [RelayCommand]

@@ -59,12 +59,14 @@ namespace Kakao.Friends.Local.ViewModels
         private void DoubleClick(FriendsModel data)
         {
             TalkWindow window = _talkWindowManager.ResolveWindow<TalkWindow>(data.Id);
+            TalkContent content = new();
+
             window.Title = data.Name;
             window.Width = 360;
             window.Height = 500;
-            window.Content = new TalkContent();
+            window.Content = content;
 
-            if (window.Content is IViewable content && content.View.DataContext is ITalkInitializable talkInit)
+            if (content.DataContext is ITalkInitializable talkInit)
             {
                 talkInit.InitInformation(data);
             }

@@ -47,7 +47,7 @@ namespace Kakao.Core.Talkings
             {
                 try
                 {
-                    var window = new T();
+                    T window = new T();
                     window.Closed += (sender, e) => UnregisterWindow(key);
                     _windows.Add(key, window);
                     OnWindowCountChanged();
