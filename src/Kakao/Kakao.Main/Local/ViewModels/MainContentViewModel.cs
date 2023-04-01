@@ -6,9 +6,7 @@ using Kakao.Core.Models;
 using Kakao.Core.Names;
 using Prism.Ioc;
 using Prism.Regions;
-using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 
 namespace Kakao.Main.Local.ViewModels
 {

@@ -1,10 +1,19 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:views="clr-namespace:Kakao.Talk.UI.Views">
+    xmlns:views="clr-namespace:Kakao.Talk.UI.Views"
+    xmlns:units="clr-namespace:Kakao.Talk.UI.Units"
+    xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf"
+    xmlns:based="clr-namespace:Kakao.LayoutSupport.UI.Units;assembly=Kakao.LayoutSupport">
 
     <ImageSource x:Key="Smile">/Kakao.Talk;component/Images/smile.png</ImageSource>
 
+    <Style TargetType="{x:Type james:JamesGrid}" x:Key="TaskGrid">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Rows" Value="Auto"/>
+        <Setter Property="Columns" Value="Auto, Auto, Auto"/>
+    </Style>
+    
     <Style TargetType="{x:Type views:TalkContent}">
         <Setter Property="Background" Value="#FFBACEE0"/>
         <Setter Property="Template">
@@ -13,20 +22,35 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <RichTextBox IsReadOnly="True" 
-                                     Background="#FFBACEE0"
-                                     BorderThickness="0">
-                            <FlowDocument>
-                                <Paragraph>I am a flow document. Would you like to edit me?
-                                    <Bold>Go ahead.</Bold>
-                                </Paragraph>
-                                <Paragraph Foreground="Blue">I am blue I am blue I am blue.</Paragraph>
-                                <BlockUIContainer>
-                                    <Image Width="128" Height="128" Source="{StaticResource Smile}"
+                        <james:JamesGrid Rows="Auto, *, Auto" Columns="*">
+                            <james:JamesGrid Style="{StaticResource TaskGrid}">
+                                <based:TalkTaskBarButton Tag="Minimize"/>
+                                <based:TalkTaskBarButton Tag="Maximize"/>
+                                <based:TalkTaskBarButton Tag="Close"/>
+                            </james:JamesGrid>
+
+                                <units:ChatRichTextBox IsReadOnly="True" 
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                    ItemsSource="{Binding Messages}">
+
+                                    <!--<FlowDocument>
+                                    <Paragraph>I am a flow document. Would you like to edit me?
+                                        <Bold>Go ahead.</Bold>
+                                    </Paragraph>
+                                    <Paragraph Foreground="Blue">I am blue I am blue I am blue.</Paragraph>
+                                    <BlockUIContainer>
+                                        <Image Width="128" Height="128" Source="{StaticResource Smile}"
                                            HorizontalAlignment="Right"/>
-                                </BlockUIContainer>
-                            </FlowDocument>
-                        </RichTextBox>
+                                    </BlockUIContainer>
+                                </FlowDocument>-->
+                                </units:ChatRichTextBox>
+                            <!--<based:CustomRichTextBox ItemsSource="{Binding Messages}"/>-->
+
+                            <based:SendTextBox Height="100"
+                                               Text="{Binding SendText, UpdateSourceTrigger=PropertyChanged}"
+                                               EnterCommand="{Binding SendCommand}"/>
+                        </james:JamesGrid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

@@ -20,18 +20,18 @@
                                        FontWeight="Bold"/>
 
                             <birth:BirthdaysBox Tag="Friends With Birthdays"
-                                                DoubleClickCommand="{Binding DoubleClickCommand}">
-                                <birth:BirthdaysBoxItem>asdasdasd</birth:BirthdaysBoxItem>
-                                <birth:BirthdaysBoxItem>asdasdasd</birth:BirthdaysBoxItem>
-                                <birth:BirthdaysBoxItem>asdasdasd</birth:BirthdaysBoxItem>
-                            </birth:BirthdaysBox>
+                                                ItemsSource="{Binding Favorites}"
+                                                DoubleClickCommand="{Binding DoubleClickCommand}"/>
 
                             <favorite:FavoriteBox Tag="Favorites">
                                 <favorite:FavoriteBoxItem>asdasdasd</favorite:FavoriteBoxItem>
                                 <favorite:FavoriteBoxItem>asdasdasd</favorite:FavoriteBoxItem>
                                 <favorite:FavoriteBoxItem>asdasdasd</favorite:FavoriteBoxItem>
                             </favorite:FavoriteBox>
-                            
+
+                            <Button Content="Simulation"
+                                    Command="{Binding ShowSimulationCommand}"/>
+
                             <Button Content="Logout"
                                     Margin="10"
                                     Padding="8 4 8 4"
