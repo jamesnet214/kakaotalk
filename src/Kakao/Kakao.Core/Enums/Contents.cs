@@ -12,6 +12,7 @@ namespace Kakao.Core.Enums
         Main,
         Friends,
         Chats,
-        More
+        More,
+        Simulator
     }
 }

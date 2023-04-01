@@ -13,6 +13,8 @@ using Kakao.More.Local.ViewModels;
 using Kakao.More.UI.Views;
 using Kakao.Talk.Local.ViewModels;
 using Kakao.Talk.UI.Views;
+using Kakao.Tests.Local.ViewModels;
+using Kakao.Tests.UI.Views;
 
 namespace Kakao.Properties
 {
@@ -29,6 +31,7 @@ namespace Kakao.Properties
 
             items.Register<TalkWindow, TalkViewModel>();
             items.Register<TalkContent, TalkContentViewModel>();
+            items.Register<SimulatorWindow, SimulatorViewModel>();
         }
     }
 }

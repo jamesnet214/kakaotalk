@@ -28,6 +28,12 @@
                                                   DoubleClickCommand="{Binding DoubleClickCommand}"
                                                   ItemsSource="{Binding Favorites}"/>
 
+                            <Button Content="Simulator"
+                                    Margin="10"
+                                    Padding="8 4 8 4"
+                                    HorizontalAlignment="Left"
+                                    Command="{Binding ShowSimulatorCommand}"/>
+                            
                             <Button Content="Logout"
                                     Margin="10"
                                     Padding="8 4 8 4"

@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Talk", "Kakao.Talk\Ka
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Talk.TextMessage", "Kakao.Talk.TextMessage\Kakao.Talk.TextMessage.csproj", "{FEEE22E2-1DDB-4EC8-AAE4-FF078289D239}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Tests", "Kakao.Tests\Kakao.Tests.csproj", "{B62477F1-188B-4E70-B8A0-191FE0B9709C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{FEEE22E2-1DDB-4EC8-AAE4-FF078289D239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEEE22E2-1DDB-4EC8-AAE4-FF078289D239}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEEE22E2-1DDB-4EC8-AAE4-FF078289D239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62477F1-188B-4E70-B8A0-191FE0B9709C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62477F1-188B-4E70-B8A0-191FE0B9709C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62477F1-188B-4E70-B8A0-191FE0B9709C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62477F1-188B-4E70-B8A0-191FE0B9709C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{1705CF95-5F55-41AB-A467-A28EDF2C8028} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
 		{5B4E915C-01AF-4E04-974B-6D8AB1CA4329} = {1705CF95-5F55-41AB-A467-A28EDF2C8028}
 		{FEEE22E2-1DDB-4EC8-AAE4-FF078289D239} = {1705CF95-5F55-41AB-A467-A28EDF2C8028}
+		{B62477F1-188B-4E70-B8A0-191FE0B9709C} = {30065F23-7549-40C2-B13A-50BF43D542B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3FDB06E-D481-40B5-8473-D6069243FA02}

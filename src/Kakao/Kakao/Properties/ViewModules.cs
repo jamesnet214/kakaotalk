@@ -5,6 +5,7 @@ using Kakao.Friends.UI.Views;
 using Kakao.Login.UI.Views;
 using Kakao.Main.UI.Views;
 using Kakao.More.UI.Views;
+using Kakao.Tests.UI.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 
@@ -15,7 +16,7 @@ namespace Kakao.Properties
         public void OnInitialized(IContainerProvider containerProvider)
         {
 
-        }
+        }   
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -24,6 +25,8 @@ namespace Kakao.Properties
             containerRegistry.RegisterSingleton<IViewable, FriendsContent>(ContentNameManager.Friends);
             containerRegistry.RegisterSingleton<IViewable, ChatsContent>(ContentNameManager.Chats);
             containerRegistry.RegisterSingleton<IViewable, MoreContent>(ContentNameManager.More);
+
+            containerRegistry.RegisterSingleton<IViewable, SimulatorWindow>(ContentNameManager.Simulator);
         }
     }
 }

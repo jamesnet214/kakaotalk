@@ -61,6 +61,7 @@ namespace Kakao.LayoutSupport.UI.Units
             {
                 foreach (var item in ItemsSource)
                 {
+
                     var control = GetTextContainerItemForOverride();
                     control.DataContext = item;
                     
