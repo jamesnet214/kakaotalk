@@ -6,7 +6,6 @@
     xmlns:names="clr-namespace:Kakao.Core.Names;assembly=Kakao.Core">
 
     <Style TargetType="{x:Type views:TalkWindow}">
-        <Setter Property="SizeToContent" Value="WidthAndHeight"/>
         <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="Template">
             <Setter.Value>
