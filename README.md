@@ -40,7 +40,8 @@ CI Geometry
     - TalkContent 추가
     - TalkTaskBarButton 추가 (LayoutSupport)
     - SendTextBox : TextBox 추가 (LayoutSupport)
-    - ChatRichTextBox : CustomRichTextBox 추가 (Units)
+    - ChatRichTextBox : CustomRichTextBox 추가 (RichTextBox 생성 후)
+    - ShowSimulation (.Tests 추가 후)
 5. RichTextBox 추가
     - Kakao.LayoutSupport.CustomRichTextBox : RichTextBox
     - ItemsSource(IEnumerable) DependencyProperty 추가
