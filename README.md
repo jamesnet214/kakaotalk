@@ -31,34 +31,37 @@ CI Geometry
 3. VerticalMenuListItem 수정  
     - Path 수집
     - Trigger 추가  
+4. FriendsBox 
+    - FriendsModel 대체
+      - Id, Name
+    - DoubleClick Command 추가
 4. Kakao.Talk 프로젝트 추가
     - TalkWindow 추가
     - TalkContent 추가
     - TalkTaskBarButton 추가
     - SendTextBox 추가
-    - ChatRichTextBox : CustomRichTextBox 추가
+    - ChatRichTextBox : CustomRichTextBox 추가    
 5. RichTextBox 추가
     - Kakao.LayoutSupport.CustomRichTextBox : RichTextBox
     - ItemsSource(IEnumerable) DependencyProperty 추가
     - Changed 콜백 추가
     - Paragraph 로직 추가
-8. Kakao.Talk.TextMessage 프로젝트 추가
+6. Kakao.Talk.TextMessage 프로젝트 추가
     - TextMessageItem : Control 추가
     - 메시지타입 Send/Received
     - 말풍선 구현
     - Tail 패스 생성 (Blend)
     - override GetTextContainerItemForOverride 생성 (ChatRichTextBox)
-8. TalkWindowManager 추가
-    - TalkWindow 관리  로직 추가 (IoC 사용)
+7. TalkWindowManager 추가 (Core.Talkings), IoC
     - Dictionary<int, JamesWindow> _windows 
     - GetWindow(key) 메서드 추가
     - GetAllWindows() 메서드 추가 (List<keyValuePier>)
-    - Resolve 메서드 추가
+    - ResolveWindow 메서드 추가
       - 리플렉션 (Activator.CreateInstance<T>())
     - UnregisterWindow(key) 메서드 추가 (TalkWindow Clsoed 일때 목록 제거 관리)
     - event EventHandler WindowCountChanged 구현 (윈도우 관리목록이 변경될 때 이벤트)
       - 실행 (WindowCountChanged?.Invoke(this, EventArgs.Empty);
-9. Kakao.Tests 추가 (Simulator)
+8. Kakao.Tests 추가 (Simulator)
     - SimulationWindow/SimulationViewModel 추가
     - Refresh Command 추가
     - Send Command 추가
@@ -67,3 +70,114 @@ CI Geometry
     - EventHub Subscribe => Refresh 연결
     - TalkWindowRefreshEvent : PubSubEvent 추가
     - TalkWindowRefreshArgs : EventArgs 추가
+    
+9. ChatStorage 추가, IoC
+    - MessageModel 추가
+      - Type, Message
+    - Dic<FriendsModel, List<MessageModel>> Chats 데이터 저장소 선언
+    - GetChats 데이터 로드하기 위한 메서드 구현
+    - Send/Received 데이터 저장 메서드 구현
+    
+    
+10. Models
+- FriendsModel
+- MessageModel
+
+11. Interfaces
+- IMessage
+- IReceiveMessage
+- ITalkInitializable
+
+12. Add files
+
+```
+ create mode 100644 src/Kakao/Kakao.Core/Args/TalkWindowRefreshArgs.cs
+ create mode 100644 src/Kakao/Kakao.Core/Events/TalkWindowRefreshPubSub.cs
+ create mode 100644 src/Kakao/Kakao.Core/Interfaces/IMessage.cs
+ create mode 100644 src/Kakao/Kakao.Core/Interfaces/IReceiveMessage.cs
+ create mode 100644 src/Kakao/Kakao.Core/Interfaces/ITalkInitializable.cs
+ create mode 100644 src/Kakao/Kakao.Core/Models/FriendsModel.cs
+ create mode 100644 src/Kakao/Kakao.Core/Models/MessageModel.cs
+ create mode 100644 src/Kakao/Kakao.Core/Talkings/ChatStorage.cs
+ create mode 100644 src/Kakao/Kakao.Core/Talkings/TalkWindowManager.cs
+ create mode 100644 src/Kakao/Kakao.LayoutSupport/Themes/Units/SendTextBox.xaml
+ create mode 100644 src/Kakao/Kakao.LayoutSupport/Themes/Units/TalkTaskBarButton.xaml
+ create mode 100644 src/Kakao/Kakao.LayoutSupport/UI/Units/CustomRichTextBox.cs
+ create mode 100644 src/Kakao/Kakao.LayoutSupport/UI/Units/SendTextBox.cs
+ create mode 100644 src/Kakao/Kakao.LayoutSupport/UI/Units/TalkTaskBarButton.cs
+ create mode 100644 src/Kakao/Kakao.Talk.TextMessage/Kakao.Talk.TextMessage.csproj
+ create mode 100644 src/Kakao/Kakao.Talk.TextMessage/Properties/AssemblyInfo.cs
+ create mode 100644 src/Kakao/Kakao.Talk.TextMessage/Themes/Generic.xaml
+ create mode 100644 src/Kakao/Kakao.Talk.TextMessage/Themes/Units/TextMessageItem.xaml
+ create mode 100644 src/Kakao/Kakao.Talk.TextMessage/UI/Units/TextMessageItem.cs
+ create mode 100644 src/Kakao/Kakao.Talk/Local/ViewModels/TalkContentViewModel.cs
+ create mode 100644 src/Kakao/Kakao.Talk/UI/Units/ChatRichTextBox.cs
+ create mode 100644 src/Kakao/Kakao.Talk/UI/Views/TalkWindow.cs
+ create mode 100644 src/Kakao/Kakao.Tests/Kakao.Tests.csproj
+ create mode 100644 src/Kakao/Kakao.Tests/Local/ViewModels/SimulationViewModel.cs
+ create mode 100644 src/Kakao/Kakao.Tests/Properties/AssemblyInfo.cs
+ create mode 100644 src/Kakao/Kakao.Tests/Themes/Generic.xaml
+ create mode 100644 src/Kakao/Kakao.Tests/Themes/Views/SimulationWindow.xaml
+ create mode 100644 src/Kakao/Kakao.Tests/UI/Views/SimulationWindow.cs
+ rename src/Kakao/Kakao/{Settings => Properties}/DirectModules.cs (90%)
+ rename src/Kakao/Kakao/{Settings => Properties}/ViewModules.cs (85%)
+ rename src/Kakao/Kakao/{Settings => Properties}/WireDataContext.cs (77%)
+```
+
+13. DependencyProperties
+
+```csharp
+public static readonly DependencyProperty DoubleClickCommandProperty =
+DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(BirthdaysBox), new PropertyMetadata(null));
+
+public ICommand DoubleClickCommand
+{
+    get => (ICommand)GetValue(DoubleClickCommandProperty);
+    set => SetValue(DoubleClickCommandProperty, value);
+}
+```
+
+```csharp
+public class CustomRichTextBox : RichTextBox
+{
+    public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register("ItemsSource", typeof(IEnumerable), typeof(CustomRichTextBox), new FrameworkPropertyMetadata(null, OnItemsSourceChanged));
+
+    public IEnumerable ItemsSource
+    {
+        get => (IEnumerable)GetValue(ItemsSourceProperty);
+        set => SetValue(ItemsSourceProperty, value);
+    }
+
+    public CustomRichTextBox()
+    {
+        Document = new FlowDocument();
+    }
+
+    private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        CustomRichTextBox richTextBox = d as CustomRichTextBox;
+
+        if (e.OldValue is INotifyCollectionChanged oldCollection)
+        {
+            oldCollection.CollectionChanged -= richTextBox.OnCollectionChanged;
+        }
+
+        if (e.NewValue is INotifyCollectionChanged newCollection)
+        {
+            newCollection.CollectionChanged += richTextBox.OnCollectionChanged;
+        }
+
+        richTextBox.UpdateFlowDocument();
+    }
+
+    private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        UpdateFlowDocument();
+    }
+
+    private void UpdateFlowDocument()
+    {
+        // 로직
+    }
+}
+```
