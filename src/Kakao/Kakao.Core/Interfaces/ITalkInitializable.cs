@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Kakao.Core.Interfaces
 {
-    public interface ITalkInitializable
+    public interface IReceiverInitializable
     {
-        void InitInformation(FriendsModel data);
+        void InitReceiverInfo(FriendsModel data);
     }
 }

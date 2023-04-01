@@ -66,13 +66,12 @@ namespace Kakao.Friends.Local.ViewModels
             window.Height = 500;
             window.Content = content;
 
-            if (content.DataContext is ITalkInitializable talkInit)
+            if(content.DataContext is IReceiverInitializable receiver) 
             {
-                talkInit.InitInformation(data);
+                receiver.InitReceiverInfo(data);
             }
 
-            window.Show();
-
+            window.ShowDialog();
         }
 
         [RelayCommand]

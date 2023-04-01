@@ -17,7 +17,7 @@ namespace Kakao.Core.Talkings
             chats = new();
         }
 
-        public ObservableCollection<MessageModel> GetChats(FriendsModel friends)
+        public ObservableCollection<MessageModel> GetChatHistory(FriendsModel friends)
         {
             if (!chats.ContainsKey(friends))
             {

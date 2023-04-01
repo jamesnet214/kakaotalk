@@ -9,10 +9,10 @@ using System.Collections.ObjectModel;
 
 namespace Kakao.Talk.Local.ViewModels
 {
-    public partial class TalkContentViewModel : ObservableBase, IViewLoadable, ITalkInitializable, IReceiveMessage
+    public partial class TalkContentViewModel : ObservableBase, IViewLoadable, IReceiverInitializable, IReceiveMessage
     {
         private readonly ChatStorage _chatStorage;
-        private FriendsModel _friends;
+        private FriendsModel _receiver;
 
         [ObservableProperty]
         private string _sendText;
@@ -25,14 +25,14 @@ namespace Kakao.Talk.Local.ViewModels
             _chatStorage = chatStorage;
         }
 
-        public void InitInformation(FriendsModel data)
+        public void InitReceiverInfo(FriendsModel data)
         {
-            _friends = data;
+            _receiver = data;
         }
 
         public void OnLoaded(IViewable smartWindow)
         {
-            Messages = _chatStorage.GetChats(_friends);
+            Messages = _chatStorage.GetChatHistory(_receiver);
         }
 
         [RelayCommand]
@@ -41,7 +41,7 @@ namespace Kakao.Talk.Local.ViewModels
             MessageModel message = new MessageModel().DataGen("Send", SendText);
 
             Messages.Add(message);
-            _chatStorage.Save(_friends, message);
+            _chatStorage.Save(_receiver, message);
             SendText = "";
         }
 
@@ -49,7 +49,7 @@ namespace Kakao.Talk.Local.ViewModels
         {
             MessageModel message = new MessageModel().DataGen("Received", receivedText);
             Messages.Add(message);
-            _chatStorage.Save(_friends, message);
+            _chatStorage.Save(_receiver, message);
         }
     }
 }
