@@ -71,7 +71,7 @@ namespace Kakao.Friends.Local.ViewModels
                 receiver.InitReceiverInfo(data);
             }
 
-            window.ShowDialog();
+            window.Show();
         }
 
         [RelayCommand]
