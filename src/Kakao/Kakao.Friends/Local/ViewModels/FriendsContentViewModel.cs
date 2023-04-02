@@ -8,69 +8,81 @@ using Kakao.Core.Events;
 using Kakao.Core.Interfaces;
 using Kakao.Core.Models;
 using Kakao.Core.Names;
-using Kakao.Core.Talking;
+using Kakao.Core.Talkings;
 using Kakao.Talk.UI.Views;
 using Prism.Ioc;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
-using System.Net;
+using System.Windows;
 using System.Windows.Documents;
 
 namespace Kakao.Friends.Local.ViewModels
 {
     public partial class FriendsContentViewModel : ObservableBase
     {
-        private readonly IEventHub _eventHub;
         private readonly IRegionManager _regionManager;
         private readonly IContainerProvider _containerProvider;
         private readonly TalkWindowManager _talkWindowManager;
+        private readonly IEventHub _eventHub;
+
         [ObservableProperty]
         private List<FriendsModel> _favorites;
 
         public FriendsContentViewModel(IEventHub eventHub, IRegionManager regionManager, IContainerProvider containerProvider, TalkWindowManager talkWindowManager)
         {
-            _eventHub = eventHub;
             _regionManager = regionManager;
             _containerProvider = containerProvider;
             _talkWindowManager = talkWindowManager;
-            _talkWindowManager.WindowCountChanged += _talkWindowManager_WindowCountChanged;
+            _eventHub = eventHub;
+            talkWindowManager.WindowCountChanged += TalkWindowManager_WindowCountChanged;
 
             Favorites = GetFavorites();
-        }
-
-        private void _talkWindowManager_WindowCountChanged(object? sender, EventArgs e)
-        {
-            RefreshTalkWindowArgs args = new();
-            _eventHub.Publish<RefreshTalkWindowEvent, RefreshTalkWindowArgs>(args);
         }
 
         private List<FriendsModel> GetFavorites()
         {
             List<FriendsModel> source = new();
-            source.Add(new FriendsModel().DataGen(1, "James"));
-            source.Add(new FriendsModel().DataGen(2, "Vicky"));
-            source.Add(new FriendsModel().DataGen(3, "Harry"));
-
+            source.Add(new FriendsModel().DataGen(0, "James"));
+            source.Add(new FriendsModel().DataGen(1, "Vicky"));
+            source.Add(new FriendsModel().DataGen(2, "Harry"));
             return source;
+        }
+
+        private void TalkWindowManager_WindowCountChanged(object? sender, EventArgs e)
+        {
+            TalkWindowRefreshArgs args = new();
+            _eventHub.Publish<TalkWindowRefreshEvent, TalkWindowRefreshArgs>(args);
         }
 
         [RelayCommand]
         private void DoubleClick(FriendsModel data)
         {
-            TalkContent content = new TalkContent();
-            TalkWindow talkWindow = _talkWindowManager.ResolveWindow<TalkWindow>(data.Id);
-            talkWindow.Content = content;
-            talkWindow.Title = data.Name;
-            talkWindow.Width = 360;
-            talkWindow.Height = 500;
+            TalkWindow window = _talkWindowManager.ResolveWindow<TalkWindow>(data.Id);
+            TalkContent content = new();
 
-            if (content.DataContext is IReceiverInfo info)
+            window.Title = data.Name;
+            window.Width = 360;
+            window.Height = 500;
+            window.Content = content;
+
+            if(content.DataContext is IReceiverInitializable receiver) 
             {
-                info.InitReceiver(data);
+                receiver.InitReceiverInfo(data);
             }
 
-            talkWindow.Show();
+            window.Show();
+        }
+
+        [RelayCommand]
+        private void ShowSimulation()
+        {
+            IViewable simulation = _containerProvider.Resolve<IViewable>(ContentNameManager.Simulation);
+
+            if (simulation is JamesWindow window)
+            {
+                window.Show();
+            }
         }
 
         [RelayCommand]
@@ -79,22 +91,11 @@ namespace Kakao.Friends.Local.ViewModels
             IRegion mainRegion = _regionManager.Regions[RegionNameManager.MainRegion];
             IViewable loginContent = _containerProvider.Resolve<IViewable>(ContentNameManager.Login);
 
-            if (!mainRegion.Views.Contains(loginContent)) 
+            if (!mainRegion.Views.Contains(loginContent))
             {
                 mainRegion.Add(loginContent);
             }
             mainRegion.Activate(loginContent);
-        }
-
-        [RelayCommand]
-        private void ShowSimulator()
-        {
-            IViewable simulatorWindow = _containerProvider.Resolve<IViewable>(ContentNameManager.Simulator);
-
-            if (simulatorWindow is JamesWindow win)
-            {
-                win.Show();
-            }
         }
     }
 }

@@ -7,7 +7,7 @@
     xmlns:names="clr-namespace:Kakao.Core.Names;assembly=Kakao.Core">
 
     <Style TargetType="{x:Type views:MainContent}">
-        <Setter Property="Background" Value="Yellow"/>
+        <Setter Property="Background" Value="#FFECECED"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type views:MainContent}">
@@ -22,8 +22,9 @@
                                                         SelectedItem="{Binding Menu}"/>
 
                                 <Button Content="Logout"
-                                        Margin="10"
-                                        Padding="8 4 8 4"
+                                        Visibility="Collapsed"
+                                        Margin="0"
+                                        Padding="0"
                                         HorizontalAlignment="Left"
                                         Command="{Binding LogoutCommand}"/>
                             </StackPanel>

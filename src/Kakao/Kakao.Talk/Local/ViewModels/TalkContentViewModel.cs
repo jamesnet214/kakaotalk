@@ -4,59 +4,52 @@ using Jamesnet.Wpf.Controls;
 using Jamesnet.Wpf.Mvvm;
 using Kakao.Core.Interfaces;
 using Kakao.Core.Models;
-using Kakao.Core.Names;
-using Kakao.Core.Talking;
-using Prism.Ioc;
-using Prism.Regions;
-using System;
-using System.Collections.Generic;
+using Kakao.Core.Talkings;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kakao.Talk.Local.ViewModels
 {
-    public partial class TalkContentViewModel : ObservableBase, IReceivedMessage, IReceiverInfo, IViewLoadable
+    public partial class TalkContentViewModel : ObservableBase, IViewLoadable, IReceiverInitializable, IReceiveMessage
     {
         private readonly ChatStorage _chatStorage;
+        private FriendsModel _receiver;
+
         [ObservableProperty]
         private string _sendText;
 
         [ObservableProperty]
-        private ObservableCollection<MessageModel> _chats;
-        private FriendsModel _receiver;
+        private ObservableCollection<MessageModel> _messages;
 
-        public TalkContentViewModel(ChatStorage chatStorage)
+        public TalkContentViewModel(ChatStorage chatStorage) 
         {
             _chatStorage = chatStorage;
-            SendText = "";            
         }
 
-        public void InitReceiver(FriendsModel data)
+        public void InitReceiverInfo(FriendsModel data)
         {
             _receiver = data;
         }
 
         public void OnLoaded(IViewable smartWindow)
         {
-            Chats = new(_chatStorage.GetChatHistory(_receiver));
-        }
-
-        public void Receive(string receiveText)
-        {
-            var message = new MessageModel().DataGen("Receive", receiveText);
-            Chats.Add(message);
-            _chatStorage.Add(_receiver, message);
+            Messages = _chatStorage.GetChatHistory(_receiver);
         }
 
         [RelayCommand]
         private void Send()
         {
-            var message = new MessageModel().DataGen("Send", SendText);
-            Chats.Add(message);
-            _chatStorage.Add(_receiver, message);
-            SendText = ""; 
+            MessageModel message = new MessageModel().DataGen("Send", SendText);
+
+            Messages.Add(message);
+            _chatStorage.Save(_receiver, message);
+            SendText = "";
+        }
+
+        public void Received(string receivedText)
+        {
+            MessageModel message = new MessageModel().DataGen("Received", receivedText);
+            Messages.Add(message);
+            _chatStorage.Save(_receiver, message);
         }
     }
 }

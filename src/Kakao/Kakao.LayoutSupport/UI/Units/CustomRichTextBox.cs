@@ -1,17 +1,9 @@
-﻿using Kakao.Core.Interfaces;
-using Kakao.Core.Models;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Collections.Specialized;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using System.Windows.Media;
+using System.Windows;
+using Kakao.Core.Interfaces;
 
 namespace Kakao.LayoutSupport.UI.Units
 {
@@ -54,40 +46,34 @@ namespace Kakao.LayoutSupport.UI.Units
 
         private void UpdateFlowDocument()
         {
-            FlowDocument document = new();
+            FlowDocument document = new FlowDocument();
 
-            // 로직
-            if(ItemsSource != null) 
+            if (ItemsSource != null)
             {
                 foreach (var item in ItemsSource)
                 {
-
-                    var control = GetTextContainerItemForOverride();
+                    var control = GetContainerForItemOverride();
                     control.DataContext = item;
-                    
-                    InlineUIContainer buc = new();
-                    buc.Child = control;
-
-                    Paragraph p = new();
-                    p.Margin = new(0);
+                    Paragraph paragraph = new();
 
                     if (item is IMessage message)
-                    {
-                        p.TextAlignment = message.Type == "Send" ? TextAlignment.Right : TextAlignment.Left;
+                    { 
+                        paragraph.TextAlignment = message.Type == "Send" ? TextAlignment.Right : TextAlignment.Left;
                     }
-                    p.Inlines.Add(buc);
-                    document.Blocks.Add(p);
+
+                    paragraph.Margin = new(0);
+                    paragraph.Inlines.Add(control);
+                    document.Blocks.Add(paragraph);
                 }
             }
-
             Document = document;
-
             ScrollToEnd();
         }
 
-        protected virtual Control GetTextContainerItemForOverride()
+        protected virtual Control GetContainerForItemOverride()
         {
             Control control = new();
+
             return control;
         }
     }

@@ -28,10 +28,8 @@ namespace Kakao.Properties
             items.Register<FriendsContent, FriendsContentViewModel>();
             items.Register<ChatsContent, ChatsContentViewModel>();
             items.Register<MoreContent, MoreContentViewModel>();
-
-            items.Register<TalkWindow, TalkViewModel>();
             items.Register<TalkContent, TalkContentViewModel>();
-            items.Register<SimulatorWindow, SimulatorViewModel>();
+            items.Register<SimulationWindow, SimulationViewModel>();
         }
     }
 }

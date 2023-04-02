@@ -16,7 +16,6 @@ namespace Kakao.Core.Models
         {
             Type = type;
             Message = message;
-
             return this;
         }
     }

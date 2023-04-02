@@ -9,11 +9,5 @@ namespace Kakao.Talk.UI.Views
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TalkContent), new FrameworkPropertyMetadata(typeof(TalkContent)));
         }
-
-        public TalkContent()
-        {
-            //WindowStyle = WindowStyle.None;
-            //AllowsTransparency = true; 
-        }
     }
 }

@@ -6,9 +6,7 @@ using Kakao.Core.Models;
 using Kakao.Core.Names;
 using Prism.Ioc;
 using Prism.Regions;
-using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 
 namespace Kakao.Main.Local.ViewModels
 {
@@ -27,20 +25,19 @@ namespace Kakao.Main.Local.ViewModels
         {
             _regionManager = regionManager;
             _containerProvider = containerProvider;
-
-            Menus = GetMenus();
         }
 
         public void OnLoaded(IViewable smartWindow)
         {
+            Menus = GetMenus();
             Menu = Menus[0];
         }
 
         private List<MenuModel> GetMenus()
         {
             List<MenuModel> source = new();
-            source.Add(new MenuModel().DataGetn(ContentNameManager.Chats));
             source.Add(new MenuModel().DataGetn(ContentNameManager.Friends));
+            source.Add(new MenuModel().DataGetn(ContentNameManager.Chats));
             source.Add(new MenuModel().DataGetn(ContentNameManager.More));
 
             return source;

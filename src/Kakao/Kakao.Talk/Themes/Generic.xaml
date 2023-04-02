@@ -4,6 +4,5 @@
     xmlns:local="clr-namespace:Kakao.Talk">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Kakao.Talk;component/Themes/Views/TalkContent.xaml"/>
-        <ResourceDictionary Source="/Kakao.Talk;component/Themes/Views/TalkWindow.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

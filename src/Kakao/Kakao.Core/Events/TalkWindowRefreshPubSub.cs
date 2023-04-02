@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kakao.Core.Events
 {
-    public class RefreshTalkWindowEvent : PubSubEvent<RefreshTalkWindowArgs>
+    public class TalkWindowRefreshEvent : PubSubEvent<TalkWindowRefreshArgs>
     {
     }
 }

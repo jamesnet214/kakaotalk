@@ -16,7 +16,7 @@ namespace Kakao.Properties
         public void OnInitialized(IContainerProvider containerProvider)
         {
 
-        }   
+        }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -25,8 +25,7 @@ namespace Kakao.Properties
             containerRegistry.RegisterSingleton<IViewable, FriendsContent>(ContentNameManager.Friends);
             containerRegistry.RegisterSingleton<IViewable, ChatsContent>(ContentNameManager.Chats);
             containerRegistry.RegisterSingleton<IViewable, MoreContent>(ContentNameManager.More);
-
-            containerRegistry.RegisterSingleton<IViewable, SimulatorWindow>(ContentNameManager.Simulator);
+            containerRegistry.RegisterSingleton<IViewable, SimulationWindow>(ContentNameManager.Simulation);
         }
     }
 }

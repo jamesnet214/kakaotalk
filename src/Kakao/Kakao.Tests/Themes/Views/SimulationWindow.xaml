@@ -5,29 +5,26 @@
     xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf"
     xmlns:names="clr-namespace:Kakao.Core.Names;assembly=Kakao.Core">
 
-    <Style TargetType="{x:Type views:SimulatorWindow}">
+    <Style TargetType="{x:Type views:SimulationWindow}">
         <Setter Property="SizeToContent" Value="WidthAndHeight"/>
         <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type views:SimulatorWindow}">
+                <ControlTemplate TargetType="{x:Type views:SimulationWindow}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <james:JamesGrid Rows="Auto, *, Auto, Auto" Columns="*">
-                            <Button Content="Refresh" 
-                                    Command="{Binding RefreshCommand}"
-                                    Margin="4"/>
-                            <ListBox Margin="4" Width="200" MinHeight="200"
-                                     DisplayMemberPath="Key"
+                            <Button Content="Refresh"
+                                    Command="{Binding RefreshCommand}"/>
+                            <ListBox DisplayMemberPath="Key"
+                                     MinHeight ="100"
                                      IsSynchronizedWithCurrentItem="True"
                                      SelectedItem="{Binding Window}"
-                                     ItemsSource="{Binding TalkWindows}"/>
-                            <TextBox Text="{Binding ReceiveText}"
-                                     Margin="4"/>
-                            <Button Content="Receive"
-                                    Command="{Binding ReceiveCommand}"
-                                    Margin="4"/>
+                                     ItemsSource="{Binding Windows}"/>
+                            <TextBox Text="{Binding SendText}"/>
+                            <Button Content="Send"
+                                    Command="{Binding SendCommand}"/>
                         </james:JamesGrid>
                     </Border>
                 </ControlTemplate>

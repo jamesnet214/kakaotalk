@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kakao.Core.Args
 {
-    public class RefreshTalkWindowArgs : EventArgs
+    public class TalkWindowRefreshArgs : EventArgs
     {
     }
 }
