@@ -9,12 +9,13 @@ namespace Kakao.Core.Models
 {
     public class FriendsModel
     {
-        public int Id { get; set; } 
+        public string Id { get; set; }
+        public string Email { get; set; } 
         public string Name { get; set; }
 
-        public FriendsModel DataGen(int id, string name)
+        public FriendsModel DataGen(string id, string name)
         {
-            Id = id;
+            Email = id;
             Name = name;
             return this;
         }

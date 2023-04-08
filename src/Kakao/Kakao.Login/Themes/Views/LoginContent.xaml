@@ -37,7 +37,7 @@
                                     BorderThickness="1"
                                     CornerRadius="1">
                                 <james:JamesGrid Rows="Auto, Auto" Columns="*">
-                                    <based:PlaceholderTextBox PlaceholderText="Email"/>
+                                    <based:PlaceholderTextBox PlaceholderText="Email" Text="{Binding Email}"/>
                                     <based:PlaceholderPasswordBox PlaceholderText="Password"/>
                                 </james:JamesGrid>
                             </Border>

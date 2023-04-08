@@ -39,11 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Talk", "Kakao.Talk\Ka
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Talks", "Talks", "{D8A8B191-BB5A-4A52-B81D-2531D746F0F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Talk.TextMessage", "Kakao.Talk.TextMessage\Kakao.Talk.TextMessage.csproj", "{80627A8F-B9FE-41EA-83FB-DC964A91E64D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Talk.TextMessage", "Kakao.Talk.TextMessage\Kakao.Talk.TextMessage.csproj", "{80627A8F-B9FE-41EA-83FB-DC964A91E64D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pages", "Pages", "{AFB52BD3-6A6C-4381-9713-FAEFC3BB049F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Tests", "Kakao.Tests\Kakao.Tests.csproj", "{91895B11-324B-492E-9767-24CA9D4A6703}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kakao.Tests", "Kakao.Tests\Kakao.Tests.csproj", "{91895B11-324B-492E-9767-24CA9D4A6703}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{5F85C27E-42A1-4743-A6C1-D3EA58A7365D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kakao.Receiver", "Kakao.Receiver\Kakao.Receiver.csproj", "{71CA4A12-3918-4F89-A5CA-4739B65A3B3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +111,10 @@ Global
 		{91895B11-324B-492E-9767-24CA9D4A6703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91895B11-324B-492E-9767-24CA9D4A6703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91895B11-324B-492E-9767-24CA9D4A6703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71CA4A12-3918-4F89-A5CA-4739B65A3B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71CA4A12-3918-4F89-A5CA-4739B65A3B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71CA4A12-3918-4F89-A5CA-4739B65A3B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71CA4A12-3918-4F89-A5CA-4739B65A3B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +137,7 @@ Global
 		{80627A8F-B9FE-41EA-83FB-DC964A91E64D} = {D8A8B191-BB5A-4A52-B81D-2531D746F0F7}
 		{AFB52BD3-6A6C-4381-9713-FAEFC3BB049F} = {B6E33984-E8F4-4E2C-8839-439462E3E06E}
 		{91895B11-324B-492E-9767-24CA9D4A6703} = {AFB52BD3-6A6C-4381-9713-FAEFC3BB049F}
+		{71CA4A12-3918-4F89-A5CA-4739B65A3B3D} = {5F85C27E-42A1-4743-A6C1-D3EA58A7365D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3FDB06E-D481-40B5-8473-D6069243FA02}

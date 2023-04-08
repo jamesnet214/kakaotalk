@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Kakao.Login">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Kakao.Login;component/Themes/Views/GoogleWindow.xaml"/>
         <ResourceDictionary Source="/Kakao.Login;component/Themes/Views/LoginContent.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

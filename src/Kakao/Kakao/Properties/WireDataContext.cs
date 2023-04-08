@@ -30,6 +30,7 @@ namespace Kakao.Properties
             items.Register<MoreContent, MoreContentViewModel>();
             items.Register<TalkContent, TalkContentViewModel>();
             items.Register<SimulationWindow, SimulationViewModel>();
+            items.Register<GoogleWindow, GoogleViewModel>();
         }
     }
 }

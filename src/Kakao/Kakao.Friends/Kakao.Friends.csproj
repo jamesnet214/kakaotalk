@@ -14,6 +14,7 @@
     <ProjectReference Include="..\Kakao.Core\Kakao.Core.csproj" />
     <ProjectReference Include="..\Kakao.Friends.Birth\Kakao.Friends.Birth.csproj" />
     <ProjectReference Include="..\Kakao.Friends.Favorites\Kakao.Friends.Favorites.csproj" />
+    <ProjectReference Include="..\Kakao.Receiver\Kakao.Receiver.csproj" />
     <ProjectReference Include="..\Kakao.Talk\Kakao.Talk.csproj" />
   </ItemGroup>
 

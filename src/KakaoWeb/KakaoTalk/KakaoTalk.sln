@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33209.295
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KakaoTalk.Server", "KakaoTalk\Server\KakaoTalk.Server.csproj", "{7C0BEA33-5ADD-4238-BF9B-7B8442854952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KakaoTalk.Client", "KakaoTalk\Client\KakaoTalk.Client.csproj", "{7471A3E2-5F40-4E9B-B732-477EB08B950E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KakaoTalk.Shared", "KakaoTalk\Shared\KakaoTalk.Shared.csproj", "{A340A832-EC0F-4301-BEBB-2FFEE0352F55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C0BEA33-5ADD-4238-BF9B-7B8442854952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C0BEA33-5ADD-4238-BF9B-7B8442854952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C0BEA33-5ADD-4238-BF9B-7B8442854952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C0BEA33-5ADD-4238-BF9B-7B8442854952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7471A3E2-5F40-4E9B-B732-477EB08B950E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7471A3E2-5F40-4E9B-B732-477EB08B950E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7471A3E2-5F40-4E9B-B732-477EB08B950E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7471A3E2-5F40-4E9B-B732-477EB08B950E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A340A832-EC0F-4301-BEBB-2FFEE0352F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A340A832-EC0F-4301-BEBB-2FFEE0352F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A340A832-EC0F-4301-BEBB-2FFEE0352F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A340A832-EC0F-4301-BEBB-2FFEE0352F55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DEB44C4-7D6E-49A9-A679-E2A918F6A51B}
+	EndGlobalSection
+EndGlobal

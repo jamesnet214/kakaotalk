@@ -1,0 +1,26 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims;
+@inject IJSRuntime JSRuntime
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<AuthorizeView>
+    <Authorized>
+        @{
+            var name = @context.User.Identity?.Name;
+            if (name != null)
+            {
+                string userEmail = name;
+                JSRuntime.InvokeVoidAsync("sendAuthInfoToWpf", name);
+            }
+        }
+    </Authorized>
+</AuthorizeView>

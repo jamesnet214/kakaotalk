@@ -23,10 +23,10 @@ namespace Kakao.Tests.Local.ViewModels
         private readonly TalkWindowManager _talkWindowManager;
         private readonly IEventHub _eventHub;
         [ObservableProperty]
-        private List<KeyValuePair<int, JamesWindow>> _windows;
+        private List<KeyValuePair<string, JamesWindow>> _windows;
 
         [ObservableProperty]
-        private KeyValuePair<int, JamesWindow> _window;
+        private KeyValuePair<string, JamesWindow> _window;
 
         [ObservableProperty]
         private string _sendText;
