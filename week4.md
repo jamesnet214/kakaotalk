@@ -3,9 +3,28 @@
 3. Database 마이그레이션
 4. 로컬DB 확인
 5. OAuth Google Nuget
-6. appjson
-7. Google Cloud Platform OAuth API 생성
-8. index.html WPF 호출 스크립트 추가
+```
+builder.Services.AddAuthentication()
+    .AddGoogle(o =>
+    {
+        o.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+        o.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    })
+    .AddIdentityServerJwt();
+```
+
+6. appsettings.json
+```
+  "Authentication": {
+    "Google": {
+      "ClientId": "...",
+      "ClientSecret": "..."
+    }
+  },
+```
+
+8. Google Cloud Platform OAuth API 생성
+9. index.html WPF 호출 스크립트 추가
 ```
 window.sendAuthInfoToWpf = function (email) {
     window.chrome.webview.postMessage(email);
@@ -57,3 +76,113 @@ private void WebView_WebMessageReceived(object sender, CoreWebView2WebMessageRec
 16. LoginContentViewModel EventHub Subscribe OauthCompleted 생성
 17. GoogleWindow Close
 18. with GPT
+19. Hubs/ChatHub : Hub 생성
+20. SyncFriends 생성
+```
+public async Task SyncFriends(MessageModel request)
+{
+    List<FriendsModel> friends = new();
+    foreach (var user in _contenxt.Users.ToList()) 
+    {
+        friends.Add(new FriendsModel() { Id = user.Id, Email = user.Email, Name = user.UserName });       
+    }
+
+    ResponseFriendsPack pack = new();
+    pack.Friends = friends;
+
+    await Clients.Caller.SendAsync(pack);
+}
+    
+public class ResponseFriendsPack : IClientMethod
+{
+    public List<FriendsModel> Friends { get; set; }
+}
+
+public class FriendsModel
+{
+    public string Id { get; set; }
+    public string Email { get; set; }
+    public string Name { get; set; }
+}
+```
+
+21. Service 추가
+```
+builder.Services.AddScoped<ApplicationDbContext>();
+builder.Services.AddScoped<ChatService>();
+
+builder.Services.AddSignalR(options =>
+{
+    options.MaximumReceiveMessageSize = 1024 * 1024 * 10; // 1 MB
+});
+
+...
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<ChatHub>("/chathub");
+});
+
+```
+22. Kakao.Receiver 프로젝트 추가
+```
+public class HubManager
+{
+    public HubConnection Connection;
+    private IEventHub _ea;
+
+    public int Test { get; private set; }
+
+    public static HubManager Create()
+    {
+        HubManager hubManager = new();
+        hubManager.Connection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7287/chathub")
+            .Build();
+
+        return hubManager;
+    }
+
+    public async void Start(IEventHub ea)
+    {
+        _ea = ea;
+
+        Connection.On<List<FriendsModel>>("ResponseFriendsPack", (message) =>
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                SyncFriendsArgs args = new();
+                args.Friends = message;
+                _ea.Publish<SyncFriendsPubSub, SyncFriendsArgs>(args);
+            });
+        });
+
+        try
+        {
+            await Connection.StartAsync();
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+}
+```
+
+23. HubManager 등록
+```
+HubManager conn = HubManager.Create();
+
+conn.Connection.Closed += async (error) =>
+{
+    await Task.Delay(new Random().Next(1, 5) * 1000);
+    await conn.Connection.StartAsync();
+};
+
+containerRegistry.RegisterInstance(conn);
+```
+    
+24. SignalR 호출
+```
+await _hubManager.Connection.InvokeAsync("SyncFriends", new MessageModel());
+```
