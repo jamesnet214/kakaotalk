@@ -7,7 +7,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <TextBlock Text="123123123"/>
+                    <TextBlock Text="{Binding Email}"/>
                 </ControlTemplate>                
             </Setter.Value>
         </Setter>
@@ -19,11 +19,10 @@
                 <ControlTemplate TargetType="{x:Type units:BirthdaysBoxItem}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="8 4 8 4">
                         <RadioButton Style="{StaticResource Rdo}" GroupName="rd1"
-                                     IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsSelected}">
-                            asdasdasd2222222222
-                        </RadioButton>
+                                     IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsSelected}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">

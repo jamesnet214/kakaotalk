@@ -9,7 +9,9 @@ using Kakao.Core.Interfaces;
 using Kakao.Core.Models;
 using Kakao.Core.Names;
 using Kakao.Core.Talkings;
+using Kakao.Receiver;
 using Kakao.Talk.UI.Views;
+using Microsoft.AspNetCore.SignalR.Client;
 using Prism.Ioc;
 using Prism.Regions;
 using System;
@@ -21,6 +23,7 @@ namespace Kakao.Friends.Local.ViewModels
 {
     public partial class FriendsContentViewModel : ObservableBase
     {
+        private readonly HubManager _hubManager;
         private readonly IRegionManager _regionManager;
         private readonly IContainerProvider _containerProvider;
         private readonly TalkWindowManager _talkWindowManager;
@@ -29,8 +32,9 @@ namespace Kakao.Friends.Local.ViewModels
         [ObservableProperty]
         private List<FriendsModel> _favorites;
 
-        public FriendsContentViewModel(IEventHub eventHub, IRegionManager regionManager, IContainerProvider containerProvider, TalkWindowManager talkWindowManager)
+        public FriendsContentViewModel(HubManager hubManager, IEventHub eventHub, IRegionManager regionManager, IContainerProvider containerProvider, TalkWindowManager talkWindowManager)
         {
+            _hubManager = hubManager;
             _regionManager = regionManager;
             _containerProvider = containerProvider;
             _talkWindowManager = talkWindowManager;
@@ -38,14 +42,17 @@ namespace Kakao.Friends.Local.ViewModels
             talkWindowManager.WindowCountChanged += TalkWindowManager_WindowCountChanged;
 
             Favorites = GetFavorites();
+
+            _eventHub.Subscribe<SyncFriendsPubSub, SyncFriendsArgs>(SyncFriendsReceived);
+            _hubManager.Start(eventHub);
         }
 
         private List<FriendsModel> GetFavorites()
         {
             List<FriendsModel> source = new();
-            source.Add(new FriendsModel().DataGen(0, "James"));
-            source.Add(new FriendsModel().DataGen(1, "Vicky"));
-            source.Add(new FriendsModel().DataGen(2, "Harry"));
+            //source.Add(new FriendsModel().DataGen(0, "James"));
+            //source.Add(new FriendsModel().DataGen(1, "Vicky"));
+            //source.Add(new FriendsModel().DataGen(2, "Harry"));
             return source;
         }
 
@@ -96,6 +103,17 @@ namespace Kakao.Friends.Local.ViewModels
                 mainRegion.Add(loginContent);
             }
             mainRegion.Activate(loginContent);
+        }
+
+        [RelayCommand]
+        private async void SyncFriends()
+        {
+            await _hubManager.Connection.InvokeAsync("SyncFriends", new RequestInfo());
+        }
+
+        private void SyncFriendsReceived(SyncFriendsArgs obj)
+        {
+            Favorites = obj.Friends;
         }
     }
 }

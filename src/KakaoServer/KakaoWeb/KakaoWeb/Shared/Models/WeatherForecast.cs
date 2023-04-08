@@ -1,4 +1,4 @@
-namespace KakaoWeb.Shared
+namespace KakaoWeb.Shared.Models
 {
     public class WeatherForecast
     {

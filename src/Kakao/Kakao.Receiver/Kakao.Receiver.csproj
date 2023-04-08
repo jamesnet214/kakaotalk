@@ -8,14 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Jamesnet.Wpf" Version="1.0.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Connections.Client" Version="7.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="7.0.4" />
+    <PackageReference Include="SignalR.EasyUse.Client" Version="0.2.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Kakao.Core\Kakao.Core.csproj" />
-    <ProjectReference Include="..\Kakao.Friends.Birth\Kakao.Friends.Birth.csproj" />
-    <ProjectReference Include="..\Kakao.Friends.Favorites\Kakao.Friends.Favorites.csproj" />
-    <ProjectReference Include="..\Kakao.Receiver\Kakao.Receiver.csproj" />
-    <ProjectReference Include="..\Kakao.Talk\Kakao.Talk.csproj" />
   </ItemGroup>
 
 </Project>

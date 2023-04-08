@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Jamesnet.Wpf.Controls;
 using Jamesnet.Wpf.Global.Evemt;
 using Jamesnet.Wpf.Mvvm;
@@ -20,6 +21,10 @@ namespace Kakao.Login.Local.ViewModels
         private readonly IContainerProvider _containerProvider;
         private GoogleWindow _window;
 
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
+        private string _email;
+
         public LoginContentViewModel(IEventHub eventHub, IRegionManager regionManager, IContainerProvider containerProvider) 
         {
             _eventHub = eventHub;
@@ -29,7 +34,12 @@ namespace Kakao.Login.Local.ViewModels
             _eventHub.Subscribe<LoginCompletedPubSub, LoginCompletedArgs>(LoginCompleted);
         }
 
-        [RelayCommand]
+        private bool CanLogin()
+        {
+            return !string.IsNullOrWhiteSpace(Email);
+        }
+
+        [RelayCommand(CanExecute = nameof(CanLogin))]
         private void Login()
         {
             _window = new();

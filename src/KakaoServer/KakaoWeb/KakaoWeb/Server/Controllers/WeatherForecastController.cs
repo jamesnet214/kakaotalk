@@ -1,4 +1,4 @@
-using KakaoWeb.Shared;
+using KakaoWeb.Shared.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

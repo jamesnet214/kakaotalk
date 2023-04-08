@@ -11,14 +11,14 @@ namespace Kakao.Core.Talkings
     public class TalkWindowManager
     {
         public event EventHandler WindowCountChanged;
-        private readonly Dictionary<int, JamesWindow> _windows;
+        private readonly Dictionary<string, JamesWindow> _windows;
 
         public TalkWindowManager()
         {
-            _windows = new Dictionary<int, JamesWindow>();
+            _windows = new Dictionary<string, JamesWindow>();
         }
 
-        public void UnregisterWindow(int key)
+        public void UnregisterWindow(string key)
         {
             if (_windows.ContainsKey(key))
             {
@@ -27,17 +27,17 @@ namespace Kakao.Core.Talkings
             }
         }
 
-        public JamesWindow GetWindow(int key)
+        public JamesWindow GetWindow(string key)
         {
             return _windows.ContainsKey(key) ? _windows[key] : null;
         }
 
-        public List<KeyValuePair<int, JamesWindow>> GetAllWindows()
+        public List<KeyValuePair<string, JamesWindow>> GetAllWindows()
         {
             return _windows.ToList();
         }
 
-        public T ResolveWindow<T>(int key) where T : JamesWindow, new()
+        public T ResolveWindow<T>(string key) where T : JamesWindow, new()
         {
             if (_windows.ContainsKey(key))
             {
@@ -67,7 +67,7 @@ namespace Kakao.Core.Talkings
 
         public void CloseAll()
         {
-            foreach(KeyValuePair<int, JamesWindow> kvp in _windows) 
+            foreach(KeyValuePair<string, JamesWindow> kvp in _windows) 
             {
                 kvp.Value.Close();
             }

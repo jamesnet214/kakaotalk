@@ -31,6 +31,9 @@
 
                             <Button Content="Simulation"
                                     Command="{Binding ShowSimulationCommand}"/>
+                            
+                            <Button Content="Sync friends"
+                                    Command="{Binding SyncFriendsCommand}"/>
 
                             <Button Content="Logout"
                                     Margin="10"
